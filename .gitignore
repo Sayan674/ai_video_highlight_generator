@@ -1,0 +1,77 @@
+# =============================================================================
+#  AI Video Highlight Generator — .gitignore
+# =============================================================================
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.so
+.installed.cfg
+MANIFEST
+
+# --- Virtual environments ----------------------------------------------------
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# --- Pipeline intermediates --------------------------------------------------
+output/
+frames/
+selected_frames/
+temp_video.mp4
+audio.wav
+
+# --- Model weights (download on first run) -----------------------------------
+models/*.pt
+models/*.pth
+models/*.bin
+*.whisper
+~/.cache/whisper/
+~/.cache/clip/
+
+# --- Video / media files (add sample via Git LFS if needed) -----------------
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+# Uncomment to track a specific sample input:
+# !assets/sample_input/sample.mp4
+
+# --- Notebooks ---------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+# --- IDE / OS ----------------------------------------------------------------
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# --- Logs & coverage ---------------------------------------------------------
+*.log
+.coverage
+htmlcov/
+.pytest_cache/

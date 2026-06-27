@@ -1,0 +1,7 @@
+# Model weights are downloaded automatically on first run.
+# ResNet-18  → cached by torchvision (~45 MB)
+# CLIP       → cached by OpenAI CLIP   (~340 MB for ViT-B/32)
+# Whisper    → cached by openai-whisper (~74 MB for base)
+#
+# To pre-download before running the pipeline:
+#   python scripts/download_models.py

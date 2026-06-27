@@ -1,0 +1,52 @@
+# =============================================================================
+#  AI Video Highlight Generator — Configuration
+#  Edit these values to customise the pipeline behaviour.
+# =============================================================================
+
+# --- I/O paths ---------------------------------------------------------------
+input_video: "input.mp4"          # Path to your source video
+output_dir: "output"              # Directory where results are saved
+frames_dir: "output/frames"       # Extracted raw frames (temp)
+selected_frames_dir: "output/selected_frames"  # Best frames (temp)
+temp_video_path: "output/temp_highlight.mp4"   # Silent intermediate clip
+final_video_path: "output/final_ai_reel.mp4"   # ← Your final highlight reel
+audio_path: "output/audio.wav"    # Extracted audio (temp)
+
+# --- CLIP model settings -----------------------------------------------------
+clip_model_name: "ViT-B/32"       # CLIP variant  (ViT-B/32 | ViT-L/14)
+clip_text_prompts:                 # Semantic prompts used for CLIP scoring
+  - "interesting moment"
+  - "exciting scene"
+  - "person talking"
+
+# --- Whisper settings --------------------------------------------------------
+whisper_model_size: "base"        # Whisper size: tiny | base | small | medium | large
+
+# --- Scoring weights ---------------------------------------------------------
+# Combined score = resnet_weight * resnet_score + clip_weight * clip_score
+resnet_score_weight: 0.5
+clip_score_weight: 0.5
+
+# --- Output video settings ---------------------------------------------------
+# Selected frames are stitched at this FPS, so each source second produces
+# roughly 1/HIGHLIGHT_FPS seconds of screen time in the reel.
+highlight_fps: 2
+
+# --- Visual post-processing --------------------------------------------------
+contrast_alpha: 1.2   # > 1.0 increases contrast; 1.0 = no change
+brightness_beta: 30   # Positive = brighter; 0 = no change
+
+# --- ResNet input resolution -------------------------------------------------
+resnet_input_size: [224, 224]
+
+# --- Caption appearance ------------------------------------------------------
+caption_font_scale: 1.0
+caption_font_thickness: 3
+caption_text_color: [255, 255, 255]   # White  (BGR)
+caption_bg_color: [0, 0, 0]           # Black  (BGR)
+caption_bar_margin: 40
+
+# --- Cleanup -----------------------------------------------------------------
+# Set to true to delete intermediate frames/audio after the pipeline finishes
+cleanup_intermediates: true
+keep_frames_on_cleanup: false    # Set true to retain raw frames for debugging

@@ -1,0 +1,27 @@
+# AI Video Highlight Generator — Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core deep learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# CLIP (OpenAI)
+git+https://github.com/openai/CLIP.git
+
+# Whisper (OpenAI speech recognition)
+openai-whisper>=20231117
+
+# Computer vision
+opencv-python>=4.8.0
+
+# Video I/O
+moviepy>=1.0.3
+
+# Image processing
+Pillow>=10.0.0
+
+# Config parsing
+PyYAML>=6.0
+
+# Numerical
+numpy>=1.24.0
